@@ -1,0 +1,24 @@
+﻿<Window Extension:Class="Unterricht_GPR51001.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:Extension="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Unterricht_GPR51001"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800"
+        Extension:Name="xTestWindow">
+    <Window.Resources>
+        <local:IntContainerConverter Extension:Key="ICCKey"/>
+    </Window.Resources>
+    <StackPanel VerticalAlignment="Center">
+        <TextBlock Text="Count:" HorizontalAlignment="Center"/>
+        <TextBlock Extension:Name="xDateTextBlock"
+                   HorizontalAlignment="Center"
+                   Text="{Binding Path=Number, Mode=TwoWay, Converter={StaticResource ICCKey}}"/>
+        <TextBox Width="100" HorizontalAlignment="Center"
+                 Text="{Binding Path=EnteredText, Mode=TwoWay}"/>
+        <Button Extension:Name="xActionButton" Height="100" Width="30" Click="Button_Click">
+            <TextBlock Text="+1"/>
+        </Button>
+    </StackPanel>
+</Window>
