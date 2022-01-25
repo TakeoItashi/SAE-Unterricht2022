@@ -1,0 +1,4 @@
+2022.01.18: 3 Textbox/Textblock Kombos mit allen Binding Modi
+
+2022.01.25: Erstellt ein User Control, welches mit einem Click einen neuen Button erstellt
+-->Jeder Button solll bei seinem eigenen Click eine eigen Textdatei (erschaffen&)öffnen

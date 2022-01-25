@@ -7,18 +7,60 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800"
         Extension:Name="xTestWindow">
+    
     <Window.Resources>
         <local:IntContainerConverter Extension:Key="ICCKey"/>
+        <!--<ControlTemplate Extension:Key="ButtonTemplate" TargetType="{Extension:Type Button}">
+            <TextBlock Text="Test"/>
+        </ControlTemplate>-->
+        <DataTemplate Extension:Key="SubClassTemplate" DataType="{Extension:Type local:SubClass}">
+            <Button>
+                <TextBlock Text="{Binding ShownText}"/>
+            </Button>
+        </DataTemplate>
+        
+        <Style Extension:Key="ButtonStyle" TargetType="{Extension:Type Button}">
+            <Setter Property="Width" Value="100"/>
+            <Setter Property="Height" Value="20"/>
+            <Setter Property="Margin" Value="10"/>
+        </Style>
     </Window.Resources>
-    <StackPanel VerticalAlignment="Center">
-        <TextBlock Text="Count:" HorizontalAlignment="Center"/>
-        <TextBlock Extension:Name="xDateTextBlock"
+    
+    <Window.DataContext>
+        <local:NewAdditor/>
+    </Window.DataContext>
+    
+    <TabControl>
+        <TabItem Header="Lists">
+            <StackPanel>
+                <ListBox Height="100" ItemsSource="{Binding Listing, UpdateSourceTrigger=PropertyChanged}">
+
+                </ListBox>
+                <Button Style="{StaticResource ButtonStyle}"
+                        Click="Button_Click">
+                    <TextBlock Text="+1"/>
+                </Button>
+                <local:SpecialButton Path="{Binding Path}">
+                    <local:SpecialButton.DataContext>
+                        <local:NewAdditor/>
+                    </local:SpecialButton.DataContext>
+                </local:SpecialButton>
+            </StackPanel>
+        </TabItem>
+
+        <TabItem Header="Data Context Change">
+
+            <StackPanel VerticalAlignment="Center">
+                <TextBlock Text="Count:" HorizontalAlignment="Center"/>
+                <TextBlock Extension:Name="xDateTextBlock"
                    HorizontalAlignment="Center"
                    Text="{Binding Path=Number, Mode=TwoWay, Converter={StaticResource ICCKey}}"/>
-        <TextBox Width="100" HorizontalAlignment="Center"
-                 Text="{Binding Path=EnteredText, Mode=TwoWay}"/>
-        <Button Extension:Name="xActionButton" Height="100" Width="30" Click="Button_Click">
-            <TextBlock Text="+1"/>
-        </Button>
-    </StackPanel>
+                <TextBox Width="100" HorizontalAlignment="Center"
+                 Text="{Binding EnteredText, Mode=TwoWay}"/>
+                <Button Height="100" Width="30" Click="Button_Click">
+                    <TextBlock Text="+1"/>
+                </Button>
+            </StackPanel>
+        </TabItem>
+    </TabControl>
 </Window>

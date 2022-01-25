@@ -20,17 +20,14 @@ namespace Unterricht_GPR51001
 	/// </summary>
 	public partial class MainWindow : Window
 	{
-		private Additor addClass;
 		public MainWindow()
 		{
 			InitializeComponent();
-			addClass = new Additor();
-			xTestWindow.DataContext = addClass;
 		}
 
 		private void Button_Click(object sender, RoutedEventArgs e)
 		{
-			addClass.Add();
+			((Additor)DataContext).Add();
 		}
 	}
 }
