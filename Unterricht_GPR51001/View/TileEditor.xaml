@@ -1,0 +1,39 @@
+﻿<Window x:Class="Unterricht_GPR51001.View.TileEditor"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Unterricht_GPR51001.View"
+        xmlns:unterricht_gpr51001="clr-namespace:Unterricht_GPR51001" xmlns:viewmodel="clr-namespace:Unterricht_GPR51001.ViewModel"
+        mc:Ignorable="d"
+        Title="TileEditor" Height="450" Width="800">
+    <Window.DataContext>
+        <viewmodel:TileEditorViewModel/>
+    </Window.DataContext>
+    <Grid Margin="10">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="150"/>
+        </Grid.ColumnDefinitions>
+        <Grid Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition Height="2*"/>
+            </Grid.RowDefinitions>
+            <GroupBox Header="Funktionen">
+                <StackPanel VerticalAlignment="Top" HorizontalAlignment="Left">
+                    <Button Command="{Binding AddCommand}" Content="Add" Height="20" Width="50" Margin="3,0,0,3"/>
+                    <Button Content="Remove" Height="20" Width="50" Margin="3,0,0,3" Command="{Binding RemoveCommand}"/>
+                </StackPanel>
+            </GroupBox>
+            <ListBox SelectedItem="{Binding SelectedTile}" Grid.Row="1" ItemsSource="{Binding Tiles}">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <!--<unterricht_gpr51001:SpecialButton/>-->
+                        <TextBlock Text="{Binding Name}"/>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+        </Grid>
+    </Grid>
+</Window>

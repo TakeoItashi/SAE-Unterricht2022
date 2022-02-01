@@ -55,36 +55,30 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="SpecialButton.xaml.cs">
+    <Compile Include="Models\Tile.cs" />
+    <Compile Include="Utils\Kommando.cs" />
+    <Compile Include="ViewModel\BaseViewModel.cs" />
+    <Compile Include="ViewModel\TileEditorViewModel.cs" />
+    <Compile Include="View\SpecialButton.xaml.cs">
       <DependentUpon>SpecialButton.xaml</DependentUpon>
     </Compile>
-    <Compile Include="SubClass.cs" />
-    <Page Include="MainWindow.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Compile Include="Additor.cs" />
+    <Compile Include="View\TileEditor.xaml.cs">
+      <DependentUpon>TileEditor.xaml</DependentUpon>
+    </Compile>
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="IntContainer.cs" />
-    <Compile Include="IntContainerConverter.cs" />
-    <Compile Include="MainWindow.xaml.cs">
-      <DependentUpon>MainWindow.xaml</DependentUpon>
-      <SubType>Code</SubType>
-    </Compile>
-    <Page Include="NewDictionary.xaml">
+    <Page Include="View\SpecialButton.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="SpecialButton.xaml">
+    <Page Include="View\TileEditor.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="NewAdditor.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>

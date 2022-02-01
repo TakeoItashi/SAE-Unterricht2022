@@ -2,3 +2,6 @@
 
 2022.01.25: Erstellt ein User Control, welches mit einem Click einen neuen Button erstellt
 -->Jeder Button solll bei seinem eigenen Click eine eigen Textdatei (erschaffen&)öffnen
+
+2022.02.01: Schreibe dein bisheriges Projekt auf MVVM um
+-->Erstelle für SpecialButton.xaml ein eigenes Model & eigenes ViewModel, sodass man dynamisch neue Instanzen des Buttons erstellen kann
