@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Unterricht_GPR51001.Models
+namespace Models_and_Interfaces.Models
 {
 	public class Tile
 	{

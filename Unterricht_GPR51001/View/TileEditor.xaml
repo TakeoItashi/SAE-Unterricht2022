@@ -7,33 +7,48 @@
         xmlns:unterricht_gpr51001="clr-namespace:Unterricht_GPR51001" xmlns:viewmodel="clr-namespace:Unterricht_GPR51001.ViewModel"
         mc:Ignorable="d"
         Title="TileEditor" Height="450" Width="800">
-    <Window.DataContext>
-        <viewmodel:TileEditorViewModel/>
-    </Window.DataContext>
-    <Grid Margin="10">
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="150"/>
-        </Grid.ColumnDefinitions>
-        <Grid Grid.Column="1">
-            <Grid.RowDefinitions>
-                <RowDefinition/>
-                <RowDefinition Height="2*"/>
-            </Grid.RowDefinitions>
-            <GroupBox Header="Funktionen">
-                <StackPanel VerticalAlignment="Top" HorizontalAlignment="Left">
-                    <Button Command="{Binding AddCommand}" Content="Add" Height="20" Width="50" Margin="3,0,0,3"/>
-                    <Button Content="Remove" Height="20" Width="50" Margin="3,0,0,3" Command="{Binding RemoveCommand}"/>
-                </StackPanel>
-            </GroupBox>
-            <ListBox SelectedItem="{Binding SelectedTile}" Grid.Row="1" ItemsSource="{Binding Tiles}">
-                <ListBox.ItemTemplate>
-                    <DataTemplate>
-                        <!--<unterricht_gpr51001:SpecialButton/>-->
-                        <TextBlock Text="{Binding Name}"/>
-                    </DataTemplate>
-                </ListBox.ItemTemplate>
-            </ListBox>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Menu Grid.Row="0">
+            <MenuItem Header="File">
+                <MenuItem Command="{Binding Path=SaveCommand}" Header="Save"/>
+                <MenuItem Header="Load"/>
+            </MenuItem>
+        </Menu>
+        <Grid Margin="10" Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="150"/>
+            </Grid.ColumnDefinitions>
+            <ItemsControl Grid.Column="0">
+                <ItemsControl.ItemsPanel>
+                    <ItemsPanelTemplate>
+                    </ItemsPanelTemplate>
+                </ItemsControl.ItemsPanel>
+            </ItemsControl>
+            <Grid Grid.Column="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition Height="2*"/>
+                </Grid.RowDefinitions>
+                <GroupBox Header="Funktionen">
+                    <StackPanel VerticalAlignment="Top" HorizontalAlignment="Left">
+                        <Button Command="{Binding AddCommand}" Content="Add" Height="20" Width="50" Margin="3,0,0,3"/>
+                        <Button Content="Remove" Height="20" Width="50" Margin="3,0,0,3" Command="{Binding RemoveCommand}"/>
+                    </StackPanel>
+                </GroupBox>
+                <ListBox SelectedItem="{Binding SelectedTile}" Grid.Row="1" ItemsSource="{Binding Tiles}">
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <!--<unterricht_gpr51001:SpecialButton/>-->
+                            <TextBlock Text="{Binding Name}"/>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
+            </Grid>
         </Grid>
     </Grid>
 </Window>

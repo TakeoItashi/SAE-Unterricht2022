@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using Unterricht_GPR51001.ViewModel;
 
 namespace Unterricht_GPR51001.View
 {
@@ -19,9 +20,10 @@ namespace Unterricht_GPR51001.View
 	/// </summary>
 	public partial class TileEditor : Window
 	{
-		public TileEditor()
+		public TileEditor(TileEditorViewModel _viewModel)
 		{
 			InitializeComponent();
+			DataContext = _viewModel;
 		}
 	}
 }
